@@ -71,3 +71,23 @@ Delivery:
 Data should initially be delivered incrementally, city by city within North Holland, followed by complete North Holland province, and eventually the entire Netherlands.
 
 Organize all output files within one clearly labeled folder for ease of access and further enrichment or analysis.
+
+## Quickstart
+
+This repository includes a basic Python script to fetch solar panel locations from the Overpass API and join them with your local BAG dataset.
+
+1. **Install Python dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Download BAG data**
+   Obtain the official `bag.gpkg` from the Dutch Kadaster and store it locally. The file is too large to include in the repository, so provide the path when running the script.
+
+3. **Run the script**
+   ```bash
+   python scripts/overpass_to_csv.py --bag_path /path/to/bag.gpkg --output north_holland.csv
+   ```
+   This will download solar panel features from OpenStreetMap, intersect them with buildings from BAG, and output a CSV with the required columns.
+
+The script is a starting point and can be extended to split results per city or to perform additional validation.
